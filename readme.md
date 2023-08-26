@@ -1,19 +1,30 @@
-## Installation
+Clone repo
 
-1. Clone repo
+```
+git clone https://github.com/carvalhochris/fastapi-htmx-hello.git
+cd fastapi-htmx-hello
+```
 
-```git clone https://github.com/carvalhochris/fastapi-htmx-hello.git```
+Create virtual env
 
-```cd fastapi-htmx-hello```
+```
+python3 -m venv env
+```
 
-2. Create virtual env
+Activate virtual env
 
-```python3 -m venv env```
+```
+source env/bin/activate
+```
 
-3. Install dependencies
+Install dependencies
 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
-4. Run
+Run
 
-```uvicorn main:app --reload --port 8001```
+```
+uvicorn main:app --reload --port 8001
+```
