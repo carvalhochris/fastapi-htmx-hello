@@ -1,15 +1,15 @@
 from typing import Union
-
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
-
 
 @app.get("/hello", response_class=HTMLResponse)
 async def hello():
@@ -17,7 +17,6 @@ async def hello():
     <html>
     <head>
     <title>Hello...</title>
-    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
     </head>
     <body>
     <div id="parent-div">
@@ -30,6 +29,7 @@ async def hello():
         hx-swap="innerHTML"
         >Click Me!
     </button>    
+    <script src="/static/htmx.min.js"></script>
     </body>
     </html>
     """
@@ -40,5 +40,3 @@ async def world():
         <title>...world</title>
         <h1>...world</h1>
     """
-
-
