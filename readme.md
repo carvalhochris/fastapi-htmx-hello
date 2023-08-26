@@ -28,3 +28,7 @@ Run
 ```
 uvicorn main:app --reload --port 8001
 ```
+
+Test
+
+http://localhost:8001/hello
